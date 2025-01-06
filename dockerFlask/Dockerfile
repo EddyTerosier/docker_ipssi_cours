@@ -12,7 +12,7 @@ COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier le contenu du répertoire courant dans le répertoire de travail
-COPY . .
+COPY .. .
 
 # Commande à exécuter
 CMD [ "python", "./app.py" ]
