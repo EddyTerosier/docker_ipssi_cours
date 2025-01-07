@@ -3,3 +3,10 @@ services:
     image: httpd
     ports:
       - "80:80"
+
+  db:
+    image: ubuntu
+    command:
+      - tail
+      - -f
+      - dev/null

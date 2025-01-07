@@ -1,0 +1,16 @@
+services:
+  registry:
+    image: registry
+    ports:
+        - 5000:5000
+
+    volumes:
+      - registry_data:/var/lib/registry
+      - ./auth/htpasswd:/auth/htpasswd
+    environment:
+      - REGISTRY_AUTH=htpasswd
+      - REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm
+      - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
+
+volumes:
+  registry_data:
