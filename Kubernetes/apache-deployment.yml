@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache
+  template:
+    metadata:
+      name: apache-pod
+      labels:
+          app: apache
+    spec:
+      containers:
+        - name: apache-container
+          image: httpd:alpine
+          ports:
+            - containerPort: 80
